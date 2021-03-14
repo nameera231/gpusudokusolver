@@ -24,10 +24,7 @@
  * Read about this encoding in the documentation for the digit_to_cell and
  * cell_to_digit functions' documentation.
  *
- * Boards are stored as a one-dimensional array. It doesn't matter if you use
- * row-major or column-major form (that just corresponds to a rotation of the
- * sudoku board) but you will need to convert column and row to a single index
- * when accessing the board to propagate constraints.
+ * Boards are stored as a one-dimensional array. 
  */
 
 // A structure that is a single sudoku board with 81 cells
@@ -35,7 +32,7 @@ typedef struct board {
   uint16_t cells[BOARD_DIM * BOARD_DIM];
 } board_t;
 
-// Declare a few functions. Documentation is with the function definition.
+
 void print_board(board_t* board);
 __host__ __device__ uint16_t digit_to_cell(int digit);
 __host__ __device__ int cell_to_digit(uint16_t cell);
@@ -161,10 +158,7 @@ __global__ void kernel(board_t* boards) {
  * more than BATCH_SIZE, but may be less if the total number of input boards
  * is not evenly-divisible by BATCH_SIZE.
  *
- * TODO: Implement this function! You will need to add a GPU kernel, and you
- *       will almost certainly want to write helper functions; that is fine.
- *       However, you should not modify any other functions in this file.
- *
+ * 
  * \param boards      An array of boards that should be solved.
  * \param num_boards  The number of boards in the boards array
  */
